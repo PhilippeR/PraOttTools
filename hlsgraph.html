@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Analyse MediaPlaylist avec graphe</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1> Comparaison Media Playlist</h1>
+        <p> Affiche les premiers et derniers chunks d'une ou deux media playlists et télécharge le dernier chunk pour vérifier sa disponibilité<br> Pendant la mesure, infos complementaires dans la console (<code>CTRL-MAJ-I </code>sous Chrome)
+        </p>
+        <p> Display first and last chunks from two or one media playlists and download last chunck to verify its availability<br> More infos in console (<code>F12 </code>sous Chrome)
+        </p>
+        <br/>
+
+        <form>
+
+            <div class="form-group">
+                <label for="inputUrl">URL MediaPlaylist Video</label>
+                <input type="url" id="inputUrl" class="form-control" placeholder="http://monSiteWeb.com/live/hls/mediaPlaylistVideo.m3u8">
+            </div>
+            <div class="form-group">
+                <label for="inputUrl2">URL MediaPlaylist Audio</label>
+                <input type="url" id="inputUrl2" class="form-control" placeholder="http://monSiteWeb.com/live/hls/mediaPlaylistAudio.m3u8">
+            </div>
+            <div class="dropdown">
+                <div class="form-group">
+                    <label for="dureeChunk">Durée du chunk:</label>
+                    <select class="form-control col-xs-2 " id="dureeChunk">
+                        <option>2</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>10</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="content" class="row">
+                <div class="col-lg-2"><button type="button" id="analyzeBtn" class="btn" onclick="analyze()">Analyser</button></div>
+
+                <div class="col-lg-2"><button type="button" id="resetBtn" class="btn" onclick="resetChart()">Reset</button></div>
+            </div>
+
+
+            <!-- <div class="controls">
+                <button type="button" id="analyzeBtn" class="btn" onclick="analyze()">Analyser</button>
+            </div> -->
+        </form>
+        <div class="container">
+            <canvas id="graph" width="940px" height="300px"></canvas>
+        </div>
+        <div class="container">
+            <div id="errors" class="alert alert-danger"></div>
+        </div>
+        <div class="container">
+            <div id="infos" class="alert alert-info"></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="js/hlsgraph.js"></script>
+    <script src="js/lib/urlSplit.js"></script>
+</body>
+
+</html>

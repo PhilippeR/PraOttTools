@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Parsing et Affichage d'une playlist HLS</h1>
+        <P> Utilisation de bootstrap</p>
+        <label for="segmentUrl">URL Master Playlist HLS:</label>
+        <input type="text" id="url" size="80">
+        <input type="button" value="Analyze" onclick="analyzeHLS()">
+
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse1">
+				Headers</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body" id="headers"></div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse2">
+				Master Playlist</a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse in">
+                    <div class="panel-body" id="masterPlaylist"></div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse3">
+				Master Playlist 2</a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body" id="masterPlaylist2"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer><code>Made by Pra</code></footer>
+    </div>
+
+    <script src="js/hls_pra.js"></script>
+    <script src="js/lib/accordion.js"></script>
+
+    <script src="js/lib/m3u8Reader.js"></script>
+    <script src="js/lib/m3u8_reader_list.js"></script>
+    <script src="js/lib/urlSplit.js"></script>
+
+
+</html>
